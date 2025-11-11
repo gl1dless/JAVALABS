@@ -1,5 +1,6 @@
 package secondEx;
 
+
 public class ComplexNumber {
     private double real;
     private double imag;

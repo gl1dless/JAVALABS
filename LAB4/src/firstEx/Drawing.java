@@ -6,7 +6,9 @@ import java.util.*;
 public class Drawing {
     private final List<Shape> shapes = new ArrayList<>();
 
-    public List<Shape> getShapes() { return Collections.unmodifiableList(shapes); }
+    public List<Shape> getShapes() {
+        return shapes;
+    }
 
     public void add(Shape s) {
         if (s == null) throw new IllegalArgumentException("Shape cannot be null");

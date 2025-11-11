@@ -19,6 +19,6 @@ public abstract class Shape {
     public abstract double getArea();
 
     public String toString() {
-        return getName() + ", area=" + String.format("%.4f", getArea());
+        return getName() + ", area=" + getArea();
     }
 }

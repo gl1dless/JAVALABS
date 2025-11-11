@@ -10,3 +10,4 @@ public class SecondTest {
         System.out.println("z1 * z2 = " + result);
     }
 }
+

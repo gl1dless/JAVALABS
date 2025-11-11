@@ -1,5 +1,6 @@
 package firstEx;
 
+
 public class Test {
     public static void run() {
         Drawing drawing = new Drawing();
