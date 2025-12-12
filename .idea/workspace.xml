@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="04c64989-677e-424a-b266-111685faee9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/LAB2.1/LAB2.1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB2.2/LAB2.2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB2.3/LAB2.3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB2.4/LAB2.4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB3.1/LAB3.1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB4/LAB4.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gl1dless"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gl1dless/JAVALABS",
+    "accountId": "486b8b35-009c-47ed-b250-d18f928fde03"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="36hQAyD0ZanyXzzrIyN1vBk2KaZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yorha/IdeaProjects"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04c64989-677e-424a-b266-111685faee9b" name="Changes" comment="" />
+      <created>1765456183373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765456183373</updated>
+    </task>
+    <servers />
+  </component>
+</project>
