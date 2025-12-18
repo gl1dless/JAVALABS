@@ -29,7 +29,6 @@ public class calc extends JFrame {
         JPanel root = new JPanel();
         root.setLayout(new BoxLayout(root, BoxLayout.Y_AXIS));
 
-        // ----- inputs -----
         JPanel pInputs = new JPanel(new FlowLayout(FlowLayout.LEFT));
         pInputs.add(new JLabel("X:"));
         pInputs.add(xField);
@@ -40,7 +39,6 @@ public class calc extends JFrame {
         pInputs.add(new JLabel("R:"));
         pInputs.add(rField);
 
-        // ----- radio buttons -----
         ButtonGroup group = new ButtonGroup();
         group.add(rbSeries);
         group.add(rbDoubleSum);
@@ -50,11 +48,9 @@ public class calc extends JFrame {
         pRadio.add(rbSeries);
         pRadio.add(rbDoubleSum);
 
-        // ----- button -----
         JPanel pBtn = new JPanel(new FlowLayout(FlowLayout.LEFT));
         pBtn.add(calcButton);
 
-        // ----- result -----
         JPanel pRes = new JPanel(new FlowLayout(FlowLayout.LEFT));
         pRes.add(resultLabel);
 
@@ -92,7 +88,6 @@ public class calc extends JFrame {
         resultLabel.setText("Результат: " + z);
     }
 
-    //первая формула
     private double calcSeries(double x, double y, int n) {
         double z = 0.0;
 
@@ -109,7 +104,6 @@ public class calc extends JFrame {
         return z;
     }
 
-    //вторая формула
     private double calcDoubleSum(int n, int r) {
         double z = 0.0;
 

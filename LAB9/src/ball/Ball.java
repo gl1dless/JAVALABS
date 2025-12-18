@@ -19,19 +19,15 @@ public class Ball extends JFrame {
         setVisible(true);
     }
 
-    // Панель для рисования шара
     static class BallPanel extends JPanel implements ActionListener {
 
-        // положение центра шара
         private double x = 50;
         private double y = 200;
 
-        // скорость движения по экрану (постоянная)
         private final double vx = 2.0;
 
-        // радиус (эффект "далеко/близко")
         private double r = 10;
-        private double vr = 0.6; // скорость изменения радиуса (постоянная)
+        private double vr = 0.6;
 
         private final double rMin = 10;
         private final double rMax = 80;
@@ -50,31 +46,25 @@ public class Ball extends JFrame {
             int cx = (int) x;
             int cy = (int) y;
 
-            // рисуем круг (шар)
             g.setColor(Color.PINK);
             g.drawOval(cx - rr, cy - rr, rr * 2, rr * 2);
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // 1) движение по экрану с постоянной скоростью
             x += vx;
 
-            // если ушёл вправо — появляемся слева (чтобы не усложнять отражением)
             if (x > getWidth() + rMax) {
                 x = -rMax;
             }
 
-            // 2) приближение/удаление: радиус меняется с постоянной скоростью
             r += vr;
 
-            // дошли до максимума — начинаем "удаляться"
             if (r >= rMax) {
                 r = rMax;
                 vr = -vr;
             }
 
-            // дошли до минимума — начинаем "приближаться"
             if (r <= rMin) {
                 r = rMin;
                 vr = -vr;
