@@ -16,7 +16,7 @@ public class Snake extends JFrame {
     private final JButton restartButton = new JButton("Restart");
 
     public Snake() {
-        super("ЛР10 — Змейка");
+        super("SNAKE THE GAME");
 
         GameSettings s = GameSettings.getInstance();
 
