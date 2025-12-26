@@ -31,32 +31,44 @@ public class Main {
             System.out.println("9) Завершить (без проверок)");
             System.out.print("Выбор: ");
 
-            int c = readInt(sc);
+            int c = Integer.parseInt(sc.nextLine().trim());
 
             switch (c) {
-                case 1:
-                    runCommand(chooseWeapon(sc, p), p);
-                    break;
 
-                case 2:
-                    runCommand(chooseHelmet(sc, p), p);
+                case 1: {
+                    Weapon w = (Weapon) MenuHelper.chooseItemForSlot(sc, GearSlot.WEAPON, "Оружие:");
+                    runCommand(new SetSlotCommand<>("Установлено оружие", p.getBuild()::setWeapon, w), p);
                     break;
+                }
 
-                case 3:
+                case 2: {
+                    Helmet h = (Helmet) MenuHelper.chooseItemForSlot(sc, GearSlot.HELMET, "Шлем:");
+                    runCommand(new SetSlotCommand<>("Установлен шлем", p.getBuild()::setHelmet, h), p);
+                    break;
+                }
+
+                case 3: {
                     runCommand(chooseBodySystem(sc, p), p);
                     break;
+                }
 
-                case 4:
-                    runCommand(chooseHeadset(sc, p), p);
+                case 4: {
+                    Headset hs = (Headset) MenuHelper.chooseItemForSlot(sc, GearSlot.HEADSET, "Наушники:");
+                    runCommand(new SetSlotCommand<>("Установлены наушники", p.getBuild()::setHeadset, hs), p);
                     break;
+                }
 
-                case 5:
-                    runCommand(chooseFaceCover(sc, p), p);
+                case 5: {
+                    FaceCover fc = (FaceCover) MenuHelper.chooseItemForSlot(sc, GearSlot.FACECOVER, "Одежда на лицо:");
+                    runCommand(new SetSlotCommand<>("Установлена маска", p.getBuild()::setFaceCover, fc), p);
                     break;
+                }
 
-                case 6:
-                    runCommand(chooseBackpack(sc, p), p);
+                case 6: {
+                    Backpack bp = (Backpack) MenuHelper.chooseItemForSlot(sc, GearSlot.BACKPACK, "Рюкзак:");
+                    runCommand(new SetSlotCommand<>("Установлен рюкзак", p.getBuild()::setBackpack, bp), p);
                     break;
+                }
 
                 case 7:
                     System.out.println(p.getBuild());
@@ -73,7 +85,6 @@ public class Main {
 
                 default:
                     System.out.println("Неизвестный пункт.");
-                    break;
             }
         }
     }
@@ -82,19 +93,6 @@ public class Main {
         cmd.execute();
         System.out.println("Выполнено: " + cmd.description());
     }
-
-    private static Command chooseWeapon(Scanner sc, Player p) {
-        Weapon w = (Weapon) MenuHelper.chooseItemForSlot(sc, GearSlot.WEAPON, "Оружие:");
-        return new SetSlotCommand<>("Установить оружие: " + (w == null ? "Нет" : w.getName()),
-                p.getBuild()::setWeapon, w);
-    }
-
-    private static Command chooseHelmet(Scanner sc, Player p) {
-        Helmet h = (Helmet) MenuHelper.chooseItemForSlot(sc, GearSlot.HELMET, "Шлем:");
-        return new SetSlotCommand<>("Установить шлем: " + (h == null ? "Нет" : h.getName()),
-                p.getBuild()::setHelmet, h);
-    }
-
 
     private static Command chooseBodySystem(Scanner sc, Player p) {
         System.out.println("\nКорпус:");
@@ -113,43 +111,5 @@ public class Main {
         }
     }
 
-    private static Command chooseHeadset(Scanner sc, Player p) {
-        Headset hs = (Headset) MenuHelper.chooseItemForSlot(sc, GearSlot.HEADSET, "Наушники:");
-        return new SetSlotCommand<>("Установить наушники: " + (hs == null ? "Нет" : hs.getName()),
-                p.getBuild()::setHeadset, hs);
-    }
 
-    private static Command chooseFaceCover(Scanner sc, Player p) {
-        FaceCover fc = (FaceCover) MenuHelper.chooseItemForSlot(sc, GearSlot.FACECOVER, "Одежда на лицо:");
-        return new SetSlotCommand<>("Установить одежду на лицо: " + (fc == null ? "Нет" : fc.getName()),
-                p.getBuild()::setFaceCover, fc);
-    }
-
-    private static Command chooseBackpack(Scanner sc, Player p) {
-        Backpack bp = (Backpack) MenuHelper.chooseItemForSlot(sc, GearSlot.BACKPACK, "Рюкзак:");
-        return new SetSlotCommand<>("Установить рюкзак: " + (bp == null ? "Нет" : bp.getName()),
-                p.getBuild()::setBackpack, bp);
-    }
-
-    // ====== Ввод ======
-
-    private static int readInt(Scanner sc) {
-        while (true) {
-            String s = sc.nextLine().trim();
-            try {
-                return Integer.parseInt(s);
-            } catch (NumberFormatException e) {
-                System.out.print("Некорректный ввод!");
-            }
-        }
-    }
-
-    private static int readBounded(Scanner sc, int min, int max) {
-        while (true) {
-            System.out.print("Введите " + min + "-" + max + ": ");
-            int v = readInt(sc);
-            if (v >= min && v <= max) return v;
-            System.out.println("Вне диапазона.");
-        }
-    }
 }

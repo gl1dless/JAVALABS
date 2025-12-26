@@ -41,7 +41,8 @@ public class RaidBuild {
                 ", armoredRig=" + (armoredRig == null ? "none" : armoredRig.getName()) +
                 ", headset=" + (headset == null ? "none" : headset.getName()) +
                 ", faceCover=" + (faceCover == null ? "none" : faceCover.getName()) +
-                ", backpack=" + (backpack == null ? "none" : backpack.getName());
+                ", backpack=" + (backpack == null ? "none" : backpack.getName()) +
+                "\nхотя тебе это все равно не поможет...";
     }
 
     public static class Builder {

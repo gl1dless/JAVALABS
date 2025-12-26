@@ -7,40 +7,35 @@ import java.util.Scanner;
 
 public class MenuHelper {
 
-    public static GearType chooseTypeForSlot(Scanner sc, GearSlot slot, String title) {
-        List<GearType> options = typesBySlot(slot);
+    public static GearItem chooseItemForSlot(Scanner sc, GearSlot slot, String title) {
+
+        // 1) Собрали список всех GearType, которые относятся к этому слоту
+        List<GearType> options = new ArrayList<>();
+        for (GearType t : GearType.values()) {
+            if (t.slot() == slot) {
+                options.add(t);
+            }
+        }
 
         System.out.println("\n" + title);
         for (int i = 0; i < options.size(); i++) {
             System.out.println((i + 1) + ") " + options.get(i));
         }
 
-        int c = readBounded(sc, 1, options.size());
-        return options.get(c - 1);
-    }
-
-    public static GearItem chooseItemForSlot(Scanner sc, GearSlot slot, String title) {
-        GearType type = chooseTypeForSlot(sc, slot, title);
-        return GearFactory.create(type);
-    }
-
-    private static List<GearType> typesBySlot(GearSlot slot) {
-        List<GearType> list = new ArrayList<>();
-        for (GearType t : GearType.values()) {
-            if (t.slot() == slot) list.add(t);
-        }
-        return list;
-    }
-
-    private static int readBounded(Scanner sc, int min, int max) {
+        int choice;
         while (true) {
-            System.out.print("Введите " + min + "-" + max + ": ");
-            String s = sc.nextLine().trim();
+            System.out.print("Выбор (1-" + options.size() + "): ");
             try {
-                int v = Integer.parseInt(s);
-                if (v >= min && v <= max) return v;
+                choice = Integer.parseInt(sc.nextLine().trim());
+                if (choice >= 1 && choice <= options.size()) {
+                    break;
+                }
             } catch (NumberFormatException ignored) {}
             System.out.println("Некорректный ввод.");
         }
+
+        // 4) Создали предмет через фабрику и вернули
+        GearType selectedType = options.get(choice - 1);
+        return GearFactory.create(selectedType);
     }
 }
